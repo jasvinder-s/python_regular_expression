@@ -1,0 +1,172 @@
+2010-07-07 10:40:26,710 fmms.contacts: loaded contacthandler in 0.08 s
+2010-07-07 10:40:28,158 fmms.__main__: liststore time: 0.2
+2010-07-07 10:40:37,872 fmms.__main__: showing mms: (0,)
+2010-07-07 10:40:38,036 fmms.contacts: loaded contacthandler in 0.01 s
+2010-07-07 10:40:38,432 fmms.connectors: i acquired lock (1709)
+2010-07-07 10:40:38,437 fmms.connectors: RUNNING IN UGLYHACK MODE
+2010-07-07 10:40:38,475 fmms.connectors: UglyHackHandler UP!
+APN: wap.vodafone.co.uk user: wap pass: wap proxyip: 212.183.137.12 mmsc1: mms.vodafone.co.uk mmsc2: promms
+2010-07-07 10:40:47,202 fmms.connectors: fmms_magic retcode: 0
+2010-07-07 10:40:47,206 fmms.wappushhandler: getting file: http://promms/servlets/NOK5BxDQ0TMYSIINafwAAsPsl7UaZAAAAAAAA
+2010-07-07 10:40:47,309 fmms.wappushhandler: sending notify...
+2010-07-07 10:40:47,311 fmms.wappushhandler: using custom mms
+2010-07-07 10:40:47,342 fmms.wappushhandler: connecting via proxy 212.183.137.12:8799
+2010-07-07 10:40:47,344 fmms.wappushhandler: mmschost: http://mms.vodafone.co.uk/servlets/mms
+2010-07-07 10:40:49,193 fmms.wappushhandler: MMSC STATUS: 200 OK
+2010-07-07 10:40:49,197 fmms.wappushhandler: MMSC RESPONDED: {}
+2010-07-07 10:40:49,200 fmms.wappushhandler: m-notifyresp-ind: (200, 'OK', {}, True)
+2010-07-07 10:40:49,203 fmms.wappushhandler: notifyresp sent
+2010-07-07 10:40:49,206 fmms.wappushhandler: connecting with proxy 212.183.137.12:8799
+2010-07-07 10:40:49,220 fmms.wappushhandler: trying url: http://promms/servlets/NOK5BxDQ0TMYSIINafwAAsPsl7UaZAAAAAAAA
+2010-07-07 10:40:50,777 fmms.wappushhandler: fatal: <class 'urllib2.HTTPError'> HTTP Error 503: proxy internal error
+Traceback (most recent call last):
+  File "/opt/fmms/wappushhandler.py", line 174, in __get_mms_message
+    mmsdata = urllib2.urlopen(req)
+  File "/usr/lib/python2.5/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data)
+  File "/usr/lib/python2.5/urllib2.py", line 387, in open
+    response = meth(req, response)
+  File "/usr/lib/python2.5/urllib2.py", line 498, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python2.5/urllib2.py", line 425, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 360, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 506, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: proxy internal error
+2010-07-07 10:40:51,332 fmms.wappushhandler: Something went wrong with getting the message... bailing out
+Traceback (most recent call last):
+  File "/opt/fmms/wappushhandler.py", line 126, in _get_mms_message
+    dirname = self.__get_mms_message(location, transaction)
+  File "/opt/fmms/wappushhandler.py", line 174, in __get_mms_message
+    mmsdata = urllib2.urlopen(req)
+  File "/usr/lib/python2.5/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data)
+  File "/usr/lib/python2.5/urllib2.py", line 387, in open
+    response = meth(req, response)
+  File "/usr/lib/python2.5/urllib2.py", line 498, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python2.5/urllib2.py", line 425, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 360, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 506, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: proxy internal error
+2010-07-07 10:40:51,337 fmms.connectors: UglyHackHandler running disconnect
+2010-07-07 10:40:51,544 fmms.connectors: disconnecting connection. rx: 2259 tx: 1968
+2010-07-07 10:40:51,552 fmms.__main__: Failed to open viewer with transaction id: NOK5BxDQ0TMYSIINafwAAsPsl7UaZAAAAAAAA
+Traceback (most recent call last):
+  File "/opt/fmms/fmms_gui.py", line 422, in show_mms
+    fMMSViewer.fMMS_Viewer(transactionid, spawner=self)
+  File "/opt/fmms/fmms_viewer.py", line 56, in __init__
+    self._parse_mms(fname, vbox)
+  File "/opt/fmms/fmms_viewer.py", line 233, in _parse_mms
+    self.cont.get_mms_from_push(filename)
+  File "/opt/fmms/controller.py", line 279, in get_mms_from_push
+    path = p._get_mms_message(url, trans_id)
+  File "/opt/fmms/wappushhandler.py", line 126, in _get_mms_message
+    dirname = self.__get_mms_message(location, transaction)
+  File "/opt/fmms/wappushhandler.py", line 174, in __get_mms_message
+    mmsdata = urllib2.urlopen(req)
+  File "/usr/lib/python2.5/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data)
+  File "/usr/lib/python2.5/urllib2.py", line 387, in open
+    response = meth(req, response)
+  File "/usr/lib/python2.5/urllib2.py", line 498, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python2.5/urllib2.py", line 425, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 360, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 506, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: proxy internal error
+2010-07-07 10:40:51,602 fmms.connectors: UglyHackHandler running disconnect
+2010-07-07 10:40:51,699 fmms.connectors: disconnecting connection. rx: 2259 tx: 1968
+2010-07-07 10:50:02,172 fmms.__main__: showing mms: (0,)
+2010-07-07 10:50:02,304 fmms.contacts: loaded contacthandler in 0.01 s
+2010-07-07 10:50:02,704 fmms.connectors: i acquired lock (1709)
+2010-07-07 10:50:02,715 fmms.connectors: RUNNING IN UGLYHACK MODE
+2010-07-07 10:50:02,760 fmms.connectors: UglyHackHandler UP!
+APN: wap.vodafone.co.uk user: wap pass: wap proxyip: 212.183.137.12 mmsc1: mms.vodafone.co.uk mmsc2: promms
+2010-07-07 10:50:19,345 fmms.connectors: fmms_magic retcode: 0
+2010-07-07 10:50:19,348 fmms.wappushhandler: getting file: http://promms/servlets/NOK5BxDQ0TMYSIINafwAAsPsl7UaZAAAAAAAA
+2010-07-07 10:50:19,459 fmms.wappushhandler: sending notify...
+2010-07-07 10:50:19,461 fmms.wappushhandler: using custom mms
+2010-07-07 10:50:19,486 fmms.wappushhandler: connecting via proxy 212.183.137.12:8799
+2010-07-07 10:50:19,488 fmms.wappushhandler: mmschost: http://mms.vodafone.co.uk/servlets/mms
+2010-07-07 10:50:21,266 fmms.wappushhandler: MMSC STATUS: 200 OK
+2010-07-07 10:50:21,270 fmms.wappushhandler: MMSC RESPONDED: {}
+2010-07-07 10:50:21,273 fmms.wappushhandler: m-notifyresp-ind: (200, 'OK', {}, True)
+2010-07-07 10:50:21,276 fmms.wappushhandler: notifyresp sent
+2010-07-07 10:50:21,279 fmms.wappushhandler: connecting with proxy 212.183.137.12:8799
+2010-07-07 10:50:21,294 fmms.wappushhandler: trying url: http://promms/servlets/NOK5BxDQ0TMYSIINafwAAsPsl7UaZAAAAAAAA
+2010-07-07 10:50:25,633 fmms.wappushhandler: fatal: <class 'urllib2.HTTPError'> HTTP Error 503: proxy internal error
+Traceback (most recent call last):
+  File "/opt/fmms/wappushhandler.py", line 174, in __get_mms_message
+    mmsdata = urllib2.urlopen(req)
+  File "/usr/lib/python2.5/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data)
+  File "/usr/lib/python2.5/urllib2.py", line 387, in open
+    response = meth(req, response)
+  File "/usr/lib/python2.5/urllib2.py", line 498, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python2.5/urllib2.py", line 425, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 360, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 506, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: proxy internal error
+2010-07-07 10:50:25,755 fmms.wappushhandler: Something went wrong with getting the message... bailing out
+Traceback (most recent call last):
+  File "/opt/fmms/wappushhandler.py", line 126, in _get_mms_message
+    dirname = self.__get_mms_message(location, transaction)
+  File "/opt/fmms/wappushhandler.py", line 174, in __get_mms_message
+    mmsdata = urllib2.urlopen(req)
+  File "/usr/lib/python2.5/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data)
+  File "/usr/lib/python2.5/urllib2.py", line 387, in open
+    response = meth(req, response)
+  File "/usr/lib/python2.5/urllib2.py", line 498, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python2.5/urllib2.py", line 425, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 360, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 506, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: proxy internal error
+2010-07-07 10:50:25,774 fmms.connectors: UglyHackHandler running disconnect
+2010-07-07 10:50:26,005 fmms.connectors: disconnecting connection. rx: 2268 tx: 2065
+2010-07-07 10:50:26,013 fmms.__main__: Failed to open viewer with transaction id: NOK5BxDQ0TMYSIINafwAAsPsl7UaZAAAAAAAA
+Traceback (most recent call last):
+  File "/opt/fmms/fmms_gui.py", line 422, in show_mms
+    fMMSViewer.fMMS_Viewer(transactionid, spawner=self)
+  File "/opt/fmms/fmms_viewer.py", line 56, in __init__
+    self._parse_mms(fname, vbox)
+  File "/opt/fmms/fmms_viewer.py", line 233, in _parse_mms
+    self.cont.get_mms_from_push(filename)
+  File "/opt/fmms/controller.py", line 279, in get_mms_from_push
+    path = p._get_mms_message(url, trans_id)
+  File "/opt/fmms/wappushhandler.py", line 126, in _get_mms_message
+    dirname = self.__get_mms_message(location, transaction)
+  File "/opt/fmms/wappushhandler.py", line 174, in __get_mms_message
+    mmsdata = urllib2.urlopen(req)
+  File "/usr/lib/python2.5/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data)
+  File "/usr/lib/python2.5/urllib2.py", line 387, in open
+    response = meth(req, response)
+  File "/usr/lib/python2.5/urllib2.py", line 498, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python2.5/urllib2.py", line 425, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 360, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.5/urllib2.py", line 506, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: proxy internal error
+2010-07-07 10:50:26,021 fmms.connectors: UglyHackHandler running disconnect
+2010-07-07 10:50:26,115 fmms.connectors: disconnecting connection. rx: 2268 tx: 2065
